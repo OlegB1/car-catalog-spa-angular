@@ -2,8 +2,8 @@ Car shop. An example of single-page application.
 
 #start
 
-npm i
-gulp app
+Npm i
+Gulp app
 
 
 #tech
