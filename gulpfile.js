@@ -22,8 +22,7 @@ gulp.task('server', function () {
 });
 
 gulp.task('watch-html',function () {
-	gulp.watch('client/src/index.html',['copy'],'client/src/bin.html',['copy'],'client/src/car.html',['copy'],'client/src/electrocars.html',
-        ['copy'],'client/src/home.html',['copy'],'client/src/search.html',['copy']);
+	gulp.watch('client/src/index.html',['copy']);
 })
 
 gulp.task('copy', function () {
