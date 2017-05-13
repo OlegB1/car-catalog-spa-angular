@@ -1,0 +1,34 @@
+<div ng-controller="car" >
+    <h2 class="carName">Вашему вниминию предоставлен автомобиль марки {{item.name}}  стоисостью {{item.price}}</h2>
+    <div class="col-sm-offset-7">
+        <button ng-click="addCar()" class="addCar">Добавить в корзину</button>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 ">
+            <img class="carImg" ng-src="{{item.image}}">
+        </div>
+        <div class="col-sm-4 col-sm-offset-1">
+            <table class="table table-hover table-striped">
+                <tr>
+                    <td><strong>Мощность двигателя</strong></td>
+                    <td> {{item.enginePower}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Максимальная скорость</strong></td>
+                    <td>{{item.highestSpeed}}</td></tr>
+                <tr>
+                    <td><strong>Тип привода</strong></td>
+                    <td>{{item.geer}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Запас хода</strong></td>
+                    <td>{{item.runReserv}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Разгон до 100 км</strong></td>
+                    <td>{{item.accelerating}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

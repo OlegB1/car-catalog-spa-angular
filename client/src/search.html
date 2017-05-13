@@ -1,0 +1,14 @@
+<div ng-controller="search">
+    <h2 class="carName">{{topic}}</h2>
+    <div ng-repeat="car in selectedCars">
+        <h3 class="center">
+            <strong>{{car.name}} стоимостью {{car.price}}</strong>
+            <span style="padding-left: 50px">
+                <a ng-click="getCarId(car.id)" ui-sref="car" class="carHref">Узнать более</a>
+            </span>
+        </h3>
+        <div class="row center">
+            <img class="carImg" src="{{car.image}}">
+        </div>
+    </div>
+</div>

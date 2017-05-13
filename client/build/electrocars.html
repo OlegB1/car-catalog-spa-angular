@@ -1,0 +1,24 @@
+<div ng-controller="elcars" class="cont">
+    <div ng-repeat="car in part">
+        <h2 class="carName">{{car.name}} {{car.price}}
+            <span style="padding-left: 50px">
+                <a ui-sref="car({id: car.id})" class="carHref">Узнать более</a>
+            </span>
+        </h2>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 ">
+                <img class="carImg" src="{{car.image}}">
+            </div>
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="name">Электромобиль {{car.name}} </div>
+                <div class="price">Цена:{{car.price}} в Киеве!</div>
+                <div class="smallDiscription">{{car.discription}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="stripe">
+        <button ng-click="countMinus()" class="glyphicon glyphicon-chevron-left"></button>
+        <button ng-click="countPlus()" class="glyphicon glyphicon-chevron-right"></button>
+    </div>
+</div>
+

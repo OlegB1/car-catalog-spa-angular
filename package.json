@@ -1,0 +1,25 @@
+{
+  "name": "earth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack client/src/app.js client/build/index.js --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-ui-router": "^0.4.2",
+    "express": "^4.15.2",
+    "gulp-nodemon": "^2.2.1",
+    "ui-router": "^1.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-webpack": "^1.5.0"
+  }
+}

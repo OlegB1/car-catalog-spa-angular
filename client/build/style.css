@@ -1,0 +1,207 @@
+*{
+    overflow-x:hidden!important;
+}
+h1{
+    overflow-y:hidden!important;
+}
+.glyphicon{
+    display: inline;
+}
+span.form-group {
+    overflow-y: hidden;
+}
+#search{
+    margin: 0!important;
+    overflow-y:hidden!important;
+    display: inline-block;
+    height: 34px;
+    min-width: 34px;
+    background-color: #fff;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.overMargVertycal{
+    overflow-y: hidden;
+    margin: 8px 8px;
+    vertical-align: middle;
+}
+.color{
+    color: lightseagreen;
+}
+.center{
+    text-align: center;
+    overflow-y: hidden;
+}
+.best-cars{
+    text-align: center;
+    color: lightseagreen;
+}
+.row.elCars{
+    padding: 0px 0px 30px;
+    background-image: url("../images/main2.jpg");
+    background-size: 100% 100%;
+}
+.car{
+    max-width: 450px;
+    max-height: 300px;
+    width: auto;
+    height: 100%;
+}
+p{
+    font-size: 28px;
+    font-family: Monaco;
+    color: #2F4E94;
+}
+.tyt{display:inline-block;
+    max-height:1% ;
+    max-width:1%;
+}
+.locate{
+    font-size:20px;
+}
+.map{
+    padding-bottom: 70px;
+}
+iframe{
+    padding-top: 10px;
+}
+.discription{
+    font-size: 18px;
+    color: #2F4E94;
+}
+.nav-img{
+    padding: 0px;
+    margin: 5px;
+    height:40px;
+    width:80px;
+    display:inline;
+    margin:5px
+}
+.form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+.navbar-form {
+    padding:  0 3px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>li>a{
+    font-size: 17px;
+}
+#btimg > img{
+    width: 20px;
+    height: 20px;
+}
+#btimg {
+    padding: 5px;
+}
+.nav>li>a:last-of-type {
+    padding-right: 10px;
+}
+.navbar {
+    min-height: 32px;
+}
+.rights{
+    padding-top: 6px;
+}
+#webs {
+    display: inline-block;
+}
+.container{
+    margin-top: 50px;
+}
+.ng-scope {
+    margin-top: 15px;
+}
+#slide{
+    margin-top: 20px;
+}
+.name{
+    font-size: 24px;
+    font-family: Monaco;
+    color: #2F4E94;
+}
+.price{
+    font-size: 22px;
+    font-family: Monaco;
+    color: #2F4E94;
+}
+/*h2:first-of-type{*/
+    /*padding-top: 50px;*/
+/*}*/
+.carName{
+    text-align: center;
+    color: lightseagreen;
+
+}
+.carImg{
+    width: 450px;
+    max-height: 300px;
+    min-height: 220px;
+    height: auto;
+}
+.smallDiscription{
+    text-align: justify;
+    font-family: Monaco;
+    font-size: 20px;
+    color: #2F4E94;
+    text-indent: 45px;
+    padding-top: 10px;
+}
+.stripe{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.carHref{
+    border: 1px solid #9AC2FF;
+    marging-left: 50px;
+    font-family: Monaco;
+    font-size: 24px;
+    background-color: #9AC2FF;
+    color: #ffffff;
+}
+.addCar{
+    font-family: Monaco;
+    font-size: 24px;
+    background-color: #9AC2FF;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+/*.carBut:focus {*/
+     /*text-decoration: none;*/
+     /*color: #000000;*/
+/*}*/
+table. table. table-hover. table-striped > tr > td > strong {
+    float: left;
+}
+.row:last-of-type{
+    margin-bottom: 40px;
+}
+.container-fluid{
+    overflow-y: hidden;
+}
+.glyphicon-shopping-cart:before {
+    margin-right: 6px;
+}
+.offOverflowY {
+    overflow-y: hidden;
+}
+.clearBin{
+    font-family: Monaco;
+    font-size: 24px;
+    background-color: #d3d3d3d3;
+    color: #2F4E94;;
+    margin-left: 25px;
+    display: inline-block;
+}
+/*.size{*/
+    /*font-size:20px;*/
+/*}*/
+#nopadding{
+    padding:0!important;
+    overflow-y: hidden;
+}
+
+
