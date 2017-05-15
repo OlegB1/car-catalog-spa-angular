@@ -4,7 +4,7 @@ var app = express();
 
 var fs = require('fs');
 
-var foo  = fs.readFileSync('cars.json','utf8');
+var foo  = fs.readFileSync('server/cars.json','utf8');
 
 app.use(express.static(__dirname + '/../client/build'));
 

@@ -4,7 +4,7 @@ var uiRouter = require('angular-ui-router');
 
 var app = angular.module('app', [uiRouter]);
 
-var slider = require('./slider.js');
+// var slider = require('./slider.js');
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
@@ -16,6 +16,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('electrocars', {
             url: "/electrocars",
             templateUrl: "electrocars.html"
+            // controller : 'elcars'
         })
         .state('car', {
             url: "/car/:id",
@@ -33,7 +34,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.directive('carusel',function () {
     var index = 0;
-    slider;
+    var changeImg = setInterval(function () {
+        if (index==2) index=0;
+        var images = new Array ('images/ban1.jpg', 'images/ban2.jpg');
+        document.querySelector('#slide').style.display = 'none';
+        document.querySelector('#slide').setAttribute('src', images[index]);
+        document.querySelector('#slide').style.display = 'inline-block';
+        index++;
+    },3000);
 });
 
 app.service('car', function () {
@@ -51,7 +59,7 @@ app.service('car', function () {
 });
 
 app.controller('elcars',function ($scope, $http, car) {
-    $scope.drow = function(page, arr) {
+    $scope.draw = function(page, arr) {
         $scope.part = new Array;
         arr.forEach(function (item,index) {
             if (page == 0 && index >= 0 && index < 3){
@@ -68,13 +76,13 @@ app.controller('elcars',function ($scope, $http, car) {
     $scope.countPlus = function() {
         $scope.page ++;
         if ($scope.page == 3) $scope.page = 0;
-        $scope.drow($scope.page, car.getCars());
+        $scope.draw($scope.page, car.getCars());
     };
 
     $scope.countMinus = function() {
         $scope.page --;
         if ($scope.page == -1) $scope.page = 2;
-        $scope.drow($scope.page, car.getCars());
+        $scope.draw($scope.page, car.getCars());
     };
 
     $http({
@@ -86,10 +94,11 @@ app.controller('elcars',function ($scope, $http, car) {
 
         var cars = response.data;
 
-        $scope.drow($scope.page, cars);
+        $scope.draw($scope.page, cars);
 
         car.addCars(response.data);
     });
+
 });
 
 app.controller('car',function ($scope, $location, $stateParams, $http) {
@@ -106,6 +115,7 @@ app.controller('car',function ($scope, $location, $stateParams, $http) {
             }
         })
     });
+
 });
 
 app.controller('bin',function ($scope) {
@@ -113,8 +123,9 @@ app.controller('bin',function ($scope) {
     for (var i = 1; i < 10; i++){
         if (localStorage.getItem(i)){
             $scope.selectedCars.push(JSON.parse(localStorage.getItem(i)));
+            // $scope.selectedCars.push(JSON.parse(localStorage.getItem(i)))
         }
-    }
+    };
     $scope.clearBin = function () {
         localStorage.clear();
         $scope.selectedCars = 0;
@@ -122,7 +133,7 @@ app.controller('bin',function ($scope) {
     };
     if ($scope.selectedCars.length == 0){
         $scope.message = 'Ваша корзина пуста!';
-    }
+    };
 });
 
 app.controller('search',function ($scope, $http) {

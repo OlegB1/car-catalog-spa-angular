@@ -57,7 +57,7 @@
 
 	var app = angular.module('app', [uiRouter]);
 
-	var slider = __webpack_require__(5);
+	// var slider = require('./slider.js');
 
 	app.config(function($stateProvider, $urlRouterProvider) {
 	    $urlRouterProvider.otherwise('/home');
@@ -87,7 +87,14 @@
 
 	app.directive('carusel',function () {
 	    var index = 0;
-	    slider;
+	    var changeImg = setInterval(function () {
+	        if (index==2) index=0;
+	        var images = new Array ('images/ban1.jpg', 'images/ban2.jpg');
+	        document.querySelector('#slide').style.display = 'none';
+	        document.querySelector('#slide').setAttribute('src', images[index]);
+	        document.querySelector('#slide').style.display = 'inline-block';
+	        index++;
+	    },3000);
 	});
 
 	app.service('car', function () {
@@ -105,7 +112,7 @@
 	});
 
 	app.controller('elcars',function ($scope, $http, car) {
-	    $scope.drow = function(page, arr) {
+	    $scope.draw = function(page, arr) {
 	        $scope.part = new Array;
 	        arr.forEach(function (item,index) {
 	            if (page == 0 && index >= 0 && index < 3){
@@ -122,13 +129,13 @@
 	    $scope.countPlus = function() {
 	        $scope.page ++;
 	        if ($scope.page == 3) $scope.page = 0;
-	        $scope.drow($scope.page, car.getCars());
+	        $scope.draw($scope.page, car.getCars());
 	    };
 
 	    $scope.countMinus = function() {
 	        $scope.page --;
 	        if ($scope.page == -1) $scope.page = 2;
-	        $scope.drow($scope.page, car.getCars());
+	        $scope.draw($scope.page, car.getCars());
 	    };
 
 	    $http({
@@ -140,7 +147,7 @@
 
 	        var cars = response.data;
 
-	        $scope.drow($scope.page, cars);
+	        $scope.draw($scope.page, cars);
 
 	        car.addCars(response.data);
 	    });
@@ -38279,23 +38286,6 @@
 	  .filter('isState', $IsStateFilter)
 	  .filter('includedByState', $IncludedByStateFilter);
 	})(window, window.angular);
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-	var index = 0;
-
-	var carusel = setInterval(function () {
-	    if (index==2) index=0;
-	    var images = new Array ('images/ban1.jpg', 'images/ban2.jpg');
-	    document.querySelector('#slide').style.display = 'none';
-	    document.querySelector('#slide').setAttribute('src', images[index]);
-	    document.querySelector('#slide').style.display = 'inline-block';
-	    index++;
-	},3000);
-	module.exports = carusel;
-
 
 /***/ })
 /******/ ]);
