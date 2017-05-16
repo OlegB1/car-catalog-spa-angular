@@ -30,11 +30,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 
 app.directive('carusel', function () {
-    var images = new Array('images/ban1.jpg', 'images/ban2.jpg');
     var index = 0;
 
     return {
         link: function (scope, element) {
+            var images = element[0].attributes.resource.value.split(',');
+            element[0].src = images[0];
             setInterval(function () {
                 if (index == 2) index = 0;
 
