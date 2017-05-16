@@ -4,13 +4,13 @@ var app = express();
 
 var fs = require('fs');
 
-var foo  = fs.readFileSync('server/cars.json','utf8');
+var cars  = fs.readFileSync('server/cars.json','utf8');
 
 app.use(express.static(__dirname + '/../client/build'));
 
 app.get('/api/cars',function (req,res) {
     res.header('Content-Type', 'application/json');
-    res.send(foo);
+    res.send(cars);
 });
 
 app.listen(8080);

@@ -22,8 +22,8 @@ gulp.task('server', function () {
 });
 
 gulp.task('watch-html',function () {
-	gulp.watch('client/src/**/*.+(html|css)',['build']);
-})
+    gulp.watch('client/src/**/*.+(html|css)',['build']);
+});
 
 gulp.task('copy', function () {
   return gulp

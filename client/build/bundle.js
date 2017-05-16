@@ -57,8 +57,6 @@
 
 	var app = angular.module('app', [uiRouter]);
 
-	// var slider = require('./slider.js');
-
 	app.config(function($stateProvider, $urlRouterProvider) {
 	    $urlRouterProvider.otherwise('/home');
 	    $stateProvider
@@ -69,7 +67,6 @@
 	        .state('electrocars', {
 	            url: "/electrocars",
 	            templateUrl: "electrocars.html"
-	            // controller : 'elcars'
 	        })
 	        .state('car', {
 	            url: "/car/:id",
@@ -85,20 +82,27 @@
 	        })
 	});
 
-	app.directive('carusel',function () {
+	app.directive('carusel', function () {
+	    var images = new Array('images/ban1.jpg', 'images/ban2.jpg');
 	    var index = 0;
-	    var changeImg = setInterval(function () {
-	        if (index==2) index=0;
-	        var images = new Array ('images/ban1.jpg', 'images/ban2.jpg');
-	        document.querySelector('#slide').style.display = 'none';
-	        document.querySelector('#slide').setAttribute('src', images[index]);
-	        document.querySelector('#slide').style.display = 'inline-block';
-	        index++;
-	    },3000);
+
+	    return {
+	        link: function (scope, element) {
+	            setInterval(function () {
+	                if (index == 2) index = 0;
+
+	                element[0].style.display = 'none';
+	                element[0].src = images[index];
+	                element[0].style.display = 'inline ';
+
+	                index++;
+	            }, 3000);
+	        }
+	    }
 	});
 
 	app.service('car', function () {
-	    var arr = new Array;
+	    var arr = [];
 	    return{
 	        addCars : function (obj) {
 	            obj.forEach(function (item) {
@@ -113,7 +117,7 @@
 
 	app.controller('elcars',function ($scope, $http, car) {
 	    $scope.draw = function(page, arr) {
-	        $scope.part = new Array;
+	        $scope.part = [];
 	        arr.forEach(function (item,index) {
 	            if (page == 0 && index >= 0 && index < 3){
 	                $scope.part.push(item)
@@ -172,7 +176,7 @@
 	});
 
 	app.controller('bin',function ($scope) {
-	    $scope.selectedCars = new Array;
+	    $scope.selectedCars = [];
 	    for (var i = 1; i < 10; i++){
 	        if (localStorage.getItem(i)){
 	            $scope.selectedCars.push(JSON.parse(localStorage.getItem(i)));
@@ -199,7 +203,7 @@
 	        response.data.some(function (item) {
 	            if (item.name.toLowerCase().search(carName) !== -1){
 	                $scope.topic = 'По Вашему запросу найдены следующие автомобили';
-	                $scope.selectedCars = new Array;
+	                $scope.selectedCars = [];
 	                response.data.forEach(function (item) {
 	                    if (item.name.toLowerCase().search(carName) !== -1){
 	                        $scope.selectedCars.push(item)
